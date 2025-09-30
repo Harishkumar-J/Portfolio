@@ -1,61 +1,65 @@
-@import './../../vars.css';
+@import "../../vars.css";
 
-.navBar{
- position: relative;
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding-top: 61px;
- z-index: 2;
- margin: 0 10%;
- 
+.navBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 61px;
+  z-index: 2;
+  margin: 0 10%;
 }
 
-.title{
-    font-size: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--color-text);
-    
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-text);
 }
 
-.menu{
-    display: flex;
+
+.menuBtn {
+  display: none;
 }
 
-.menuItems{
-    display: flex;
-    gap: 47px;
-    list-style: none;
+.menu {
+  display: flex;
 }
 
-.menuItems a{
-    font-size: 25px;
-    color: var(--color-text);
-    text-decoration: none;
+.menuItems {
+  display: flex;
+  gap: 47px;
+  list-style: none;
 }
 
-@media screen and (max-width:830px) {
-    .navBar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.menuItems a {
+  font-size: 25px;
+  color: var(--color-text);
+  text-decoration: none;
+}
 
-    .menu{
-        position: absolute;
-        right: 0;
-        margin-right: 10%;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 11px;
-        z-index: 3;
-    }
+@media screen and (max-width: 830px) {
+  .navBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .menuBtn{
-        display: block;
-        cursor: pointer;
-    }
-    .menuItems {
+  .menu {
+    position: absolute;
+    right: 0;
+    margin-right: 10%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 11px;
+    z-index: 3;
+  }
+
+  .menuBtn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menuItems {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -74,5 +78,5 @@
   .menuOpen {
     display: flex;
     z-index: 1;
-  } 
+  }
 }
