@@ -1,0 +1,255 @@
+/* @import "../../vars.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #576cbc 0%, #132a53 100%);
+  box-shadow: 0 16px 14px 0 #04152d;
+  padding: 18px 24px;
+  max-width: 345px;
+}
+
+.image {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.description {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.skills {
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.skill {
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 100px;
+    background: var(--color-dark);
+    padding: 1px 8px;
+}
+
+.links {
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 100px;
+  background: var(--color-primary);
+  padding: 1px 22px;
+} */
+
+
+@import "../../vars.css";
+
+/* Card container */
+.container {
+  --radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(87,108,188,0.25) 0%, rgba(19,42,83,0.25) 100%),
+    var(--color-dark);
+  box-shadow: 0 18px 22px rgba(4,21,45,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+  outline: 1px solid rgba(255,255,255,0.06);
+
+  transition: transform 180ms ease, box-shadow 180ms ease, outline-color 180ms ease;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 34px rgba(4,21,45,0.55);
+  outline-color: rgba(255,255,255,0.12);
+}
+
+/* Image ratio */
+.image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  background: #0e1c36;
+}
+
+/* Title */
+.title {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 800;
+  margin: 2px 0 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* 2 lines max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* -------- Expandable / scrollable description -------- */
+.descWrap {
+  position: relative;
+  /* Initial preview height; keep card heights consistent */
+  max-height: 6.9rem; /* ~4 lines @ 1.45 line-height */
+  overflow: hidden;
+  transition: max-height 180ms ease;
+}
+
+/* When expanded: allow scroll inside the description wrapper */
+.expanded .descWrap {
+  max-height: 16rem;        /* enough to read; adjust if you want */
+  overflow: auto;
+}
+
+/* Nice thin scrollbar (WebKit) */
+.expanded .descWrap::-webkit-scrollbar {
+  width: 8px;
+}
+.expanded .descWrap::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+.expanded .descWrap:hover::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.28);
+}
+
+.description {
+  color: rgba(255,255,255,0.86);
+  font-size: 15px;
+  line-height: 1.45;
+  margin: 0;
+
+  /* Clamp when not expanded */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;      /* preview = 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.expanded .description {
+  display: block;             /* remove clamp when expanded */
+  -webkit-line-clamp: unset;
+}
+
+/* Fade hint only when not expanded */
+.fade {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(19,42,83,0) 0%, rgba(19,42,83,0.85) 100%);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 120ms ease;
+}
+.expanded .fade {
+  opacity: 0;                 /* hide fade when expanded */
+}
+
+/* ----------------------------------------------------- */
+
+/* Skill chips */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(11,36,71,0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
+  white-space: nowrap;
+}
+
+/* Links row */
+.links {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link,
+.linkGhost,
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-text);
+
+  transition: filter 160ms ease, transform 160ms ease;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.link {
+  background: var(--color-primary);
+  box-shadow: 0 6px 14px rgba(87,108,188,0.45);
+  border: none;
+}
+
+.linkGhost {
+  background: transparent;
+  outline: 1px solid rgba(255,255,255,0.12);
+}
+
+.readMore {
+  background: transparent;
+  outline: 1px dashed rgba(255,255,255,0.22);
+}
+
+.link:hover,
+.linkGhost:hover,
+.readMore:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Small screens */
+@media (max-width: 420px) {
+  .descWrap { max-height: 8.4rem; } /* slightly more room on phones */
+}

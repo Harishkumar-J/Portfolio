@@ -29,10 +29,10 @@ function Navbar() {
             <a href="#experience">Experience</a>
           </li>
           <li>
-            <a href="#Projects">Projects</a>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <a href="#about">Contact</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </div>

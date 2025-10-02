@@ -23,7 +23,7 @@
       "Engineered ingestion workflows with Snowflake SQL and Python, reducing text preprocessing by 40%",
       "Mentored junior analysts on NLP model tuning and best practices"
     ],
-    "imageSrc": "/assets/history/google.png"
+    "imageSrc": "/assets/history/kanini.png"
   },
   {
     "role": "Data Analyst",
@@ -36,7 +36,7 @@
       "Implemented complex SQL scripting for analytical insights in pricing and reporting",
       "Enhanced Vodafone UK's Pulse Connect platform, reducing load times via optimized React Js + Qlik Sense mashups"
     ],
-    "imageSrc": "/assets/history/google.png"
+    "imageSrc": "/assets/history/tcs.png"
   },
   {
     "role": "Technical Development Engineer (Intern)",
@@ -47,7 +47,7 @@
       "Assisted in building and upgrading web applications using React Js and React Hooks",
       "Upgraded VCA application pages with modern React components"
     ],
-    "imageSrc": "/assets/history/google.png"
+    "imageSrc": "/assets/history/purpleSlate.png"
   }
 ]
 

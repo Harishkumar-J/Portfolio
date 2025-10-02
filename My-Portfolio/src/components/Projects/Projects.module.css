@@ -1,0 +1,58 @@
+/* @import "../../vars.css";
+
+.container {
+  margin-top: 76px;
+  color: var(--color-text);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+}
+
+.projects {
+  margin-top: 37px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+} */
+
+@import "../../vars.css";
+
+.container {
+  color: var(--color-text);
+  margin: 76px auto 0;
+  padding-inline: clamp(12px, 6vw, 80px);
+  max-width: 1200px;
+}
+
+.title {
+  font-size: clamp(28px, 2.2vw + 14px, 36px);
+  font-weight: 800;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+/* Responsive, equal-height grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  align-items: stretch; /* makes all rows the same height */
+}
+
+/* Optional: tighten grid on very small screens */
+@media (max-width: 360px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
