@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Python",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "SQL",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "React",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Power BI",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Tableau",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Qlik Sense",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Snowflake",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Azure",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "NLP",
+    "imageSrc": "/assets/skills/react.png"
+  },
+  {
+    "title": "Machine Learning",
+    "imageSrc": "/assets/skills/react.png"
+  }
+]

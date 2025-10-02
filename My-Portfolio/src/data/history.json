@@ -1,0 +1,53 @@
+[
+  {
+    "role": "Data Analyst (Contract)",
+    "organisation": "PR Digital and Services Ltd",
+    "startDate": "Mar, 2025",
+    "endDate": "Aug, 2025",
+    "experiences": [
+      "Delivered reporting and dashboard solutions using Power BI and Snowflake to support internal data transformation",
+      "Designed and implemented custom dashboards for SumUp's Merchant/Customer Pricing Area, streamlining performance tracking",
+      "Conducted requirement gathering sessions with finance and commercial teams to capture KPI needs and report logic",
+      "Led a data audit project to validate customer pricing metadata, resolving 300+ inconsistencies"
+    ],
+    "imageSrc": "/assets/history/google.png"
+  },
+  {
+    "role": "Associate Data Scientist",
+    "organisation": "Kanini Software Solutions",
+    "startDate": "Oct, 2022",
+    "endDate": "Aug, 2023",
+    "experiences": [
+      "Developed and deployed machine learning models for healthcare and analytics use cases",
+      "Built a full-stack NLP pipeline on 2M+ feedback entries, achieving 92% F1-score with DistilBERT",
+      "Engineered ingestion workflows with Snowflake SQL and Python, reducing text preprocessing by 40%",
+      "Mentored junior analysts on NLP model tuning and best practices"
+    ],
+    "imageSrc": "/assets/history/google.png"
+  },
+  {
+    "role": "Data Analyst",
+    "organisation": "Tata Consultancy Services",
+    "startDate": "Apr, 2021",
+    "endDate": "Oct, 2022",
+    "experiences": [
+      "Led development of a reporting tool providing end-to-end customer and service insights using Qlik Sense",
+      "Developed a scalable web application for Retail Price Index (RPI) project",
+      "Implemented complex SQL scripting for analytical insights in pricing and reporting",
+      "Enhanced Vodafone UK's Pulse Connect platform, reducing load times via optimized React Js + Qlik Sense mashups"
+    ],
+    "imageSrc": "/assets/history/google.png"
+  },
+  {
+    "role": "Technical Development Engineer (Intern)",
+    "organisation": "Purple Slate",
+    "startDate": "Jan, 2020",
+    "endDate": "Sept, 2020",
+    "experiences": [
+      "Assisted in building and upgrading web applications using React Js and React Hooks",
+      "Upgraded VCA application pages with modern React components"
+    ],
+    "imageSrc": "/assets/history/google.png"
+  }
+]
+
