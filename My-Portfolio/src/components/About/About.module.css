@@ -66,6 +66,12 @@
   font-size: 25px;
 }
 
+.aboutItem img{
+  width: 80px;
+    padding: 0px;
+    margin: 12px;
+}
+
 @media screen and (max-width: 830px) {
   .container {
     background-color: transparent;
