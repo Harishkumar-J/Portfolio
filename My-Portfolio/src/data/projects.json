@@ -1,7 +1,7 @@
 [
   {
     "title": "Groundwater Quality Classification and Risk Assessment",
-    "imageSrc": "/assets/projects/project.png",
+    "imageSrc": "/assets/projects/groundWater.png",
     "description": "Developed and deployed ML models (XGBoost, Random Forest, SVM, Logistic Regression) to predict groundwater quality across India. Built a custom Water Quality Index (WQI) risk-scoring algorithm and visualized geospatial contamination risks.",
     "skills": ["Python", "Scikit-learn", "XGBoost", "Random Forest", "SVM", "Pandas", "GeoPandas"],
     "demo": "",
@@ -13,23 +13,23 @@
     "description": "Built ML and NLP models (Random Forest, Gradient Boosting, BERT) for topic classification, entity recognition, and text clarity analysis. Achieved 78% accuracy using TF-IDF with Logistic Regression and fine-tuned BERT.",
     "skills": ["Python", "BERT", "NLTK", "SpaCy", "TensorFlow", "Scikit-learn"],
     "demo": "",
-    "source": "" 
+    "source": "https://github.com/Harishkumar-J/Text-Classification-and-Clarity-Analysis" 
   },
   {
     "title": "FIFA Players 2019 Analysis",
-    "imageSrc": "/assets/projects/project.png",
+    "imageSrc": "/assets/projects/fifa.png",
     "description": "Created an interactive Tableau dashboard analyzing FIFA 2019 players. Included skill comparisons, top players by position, and club-level stats for insights into player performance.",
     "skills": ["Tableau", "Data Visualization", "Kaggle Dataset"],
-    "demo": "https://public.tableau.com/", 
+    "demo": "https://public.tableau.com/app/profile/harishkumar2576/viz/FIFA19_jkH/FINAL", 
     "source": ""
   },
   {
     "title": "Burger Builder",
-    "imageSrc": "/assets/projects/project.png",
+    "imageSrc": "/assets/projects/burger.png",
     "description": "Developed a React web app with Redux, Router, and Hooks where users can register, login, and build custom burgers. Integrated Firebase for user management and order persistence.",
     "skills": ["React", "Redux", "React Router", "Firebase", "Hooks"],
-    "demo": "",
-    "source": ""
+    "demo": "https://react-burger-e01a7.web.app/",
+    "source": "https://github.com/Harishkumar-J/React-burger"
   }
 ]
 
