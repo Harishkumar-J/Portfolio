@@ -41,21 +41,135 @@
   text-align: justify;
 }
 
-.contactBtn {
-  text-decoration: none;
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border-radius: 100px;
-  font-size: 25px;
-  font-weight: 600;
-  padding: 12px 20px;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+/* --- Actions (buttons) --- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
+.contactBtn,
+.resumeBtn {
+  text-decoration: none;
+  color: var(--color-text);
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 20px;
+  transition: transform 160ms ease, filter 160ms ease, background-color 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Primary (Contact) */
+.contactBtn {
+  background-color: var(--color-primary);
+}
+
+/* Secondary (Resume) */
+/* --- Bounce on hover (outer element) --- */
+.resumeBtn:hover {
+  animation: bounce 0.6s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* --- Flip (inner element) --- */
+.resumeBtn {
+  /* keep your existing button visuals (padding, outline, colors) */
+  position: relative;
+  perspective: 1000px;     /* needed for 3D flip */
+  overflow: visible;        /* ensure 3D not clipped */
+}
+
+/* The flipping face */
+.flip {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  position: relative;
+  will-change: transform;   /* smoother flip */
+}
+
+/* Front side */
+.flip::before {
+  content: "Resume";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Back side */
+.flip::after {
+  content: "Download";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: #19376d;  /* darker rear */
+  color: #fff;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Default (front visible) */
+.flip { transform: rotateY(0); }
+
+/* Hover flips to back */
+.resumeBtn:hover .flip {
+  transform: rotateY(180deg);
+}
+
+/* Optional: focus styles (accessibility) */
+.resumeBtn:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.6);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .resumeBtn:hover { animation: none; }
+  .flip { transition: none; }
+}
+
+
+/* Hover/focus */
+.contactBtn:hover,
+.resumeBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.contactBtn:focus-visible,
+.resumeBtn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Icon inside resume button */
+.icon {
+  flex-shrink: 0;
+}
+
+/* Hero image */
 .heroImg {
   width: 35%;
   z-index: 1;
-
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -63,17 +177,12 @@
 }
 
 @keyframes floating {
-  0% {
-    transform: translate(0, 0px);
-  }
-  50% {
-    transform: translate(0, 10px);
-  }
-  100% {
-    transform: translate(0, -0px);
-  }
+  0%   { transform: translate(0, 0px); }
+  50%  { transform: translate(0, 10px); }
+  100% { transform: translate(0, -0px); }
 }
 
+/* Blurs */
 .topBlur {
   position: absolute;
   width: 50vw;
@@ -102,6 +211,12 @@
   z-index: 0;
 }
 
+/* Responsive */
+@media screen and (max-width: 1030px) {
+  .title { font-size: 56px; }
+  .description { font-size: 22px; margin-right: 0; }
+}
+
 @media screen and (max-width: 830px) {
   .container {
     flex-direction: column-reverse;
@@ -109,5 +224,10 @@
 
   .content {
     align-items: center;
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
   }
 }
