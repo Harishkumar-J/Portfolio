@@ -1,11 +1,11 @@
 [
   {
     "title": "Python",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/python.png"
   },
   {
     "title": "SQL",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/sql.png"
   },
   {
     "title": "React",
@@ -13,23 +13,23 @@
   },
   {
     "title": "Power BI",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/powerBI.png"
   },
   {
     "title": "Tableau",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/tableau.png"
   },
   {
     "title": "Qlik Sense",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/qlik.png"
   },
   {
-    "title": "Snowflake",
-    "imageSrc": "/assets/skills/react.png"
+    "title": "Data science",
+    "imageSrc": "/assets/skills/datasci.png"
   },
   {
     "title": "Azure",
-    "imageSrc": "/assets/skills/react.png"
+    "imageSrc": "/assets/skills/azure.png"
   },
   {
     "title": "HTML",
