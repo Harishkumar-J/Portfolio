@@ -1,10 +1,9 @@
-@import "../../vars.css";
+/* @import "../../vars.css";
 
 .container {
   color: var(--color-text);
   margin-top: 120px;
   background-color: var(--color-secondary);
-  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100vw;
@@ -25,8 +24,8 @@
 }
 
 .links {
+  margin-top: 90px;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   list-style: none;
   gap: 26px;
@@ -35,7 +34,7 @@
 .link {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 6px;
 }
 
 .link a {
@@ -46,11 +45,86 @@
   letter-spacing: 1.5px;
 }
 
+.link img {
+  width: 50px;
+}
+
 @media screen and (max-width: 830px) {
   .container {
     flex-direction: column;
     gap: 23px;
   }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links {
+    align-items: center;
+  }
+} */
+
+@import "../../vars.css";
+
+.container {
+  color: var(--color-text);
+  margin-top: 120px;
+  background-color: var(--color-secondary);
+  width: 100vw;
+  padding: 58px 10%;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr minmax(520px, 640px);
+  gap: 40px;
+  align-items: start;
+}
+
+
+.text h2 {
+  font-size: 68px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.text p {
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.links {
+  margin-top: 90px;
+  display: grid;
+  align-items: flex-start;
+  list-style: none;
+  gap: 16px;
+}
+
+.link {
+  display: flex;
+  gap: 8px;
+}
+
+.link a {
+  color: var(--color-text);
+  text-decoration: none;
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.link img {
+  width: 50px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
 
   .text {
     display: flex;

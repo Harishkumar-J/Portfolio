@@ -29,15 +29,17 @@
 
 .container {
   color: var(--color-text);
-  margin: 76px auto 0;
-  padding-inline: clamp(12px, 6vw, 80px);
-  max-width: 1200px;
+  margin-top: 79px ;
+  /* padding-inline: clamp(12px, 6vw, 80px); */
+  /* max-width: 1200px; */
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .title {
-  font-size: clamp(28px, 2.2vw + 14px, 36px);
-  font-weight: 800;
-  letter-spacing: 1.25px;
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
   text-transform: uppercase;
   margin: 0 0 18px;
 }
