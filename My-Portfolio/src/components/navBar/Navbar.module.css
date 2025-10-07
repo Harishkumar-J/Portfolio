@@ -1,82 +1,133 @@
 @import "../../vars.css";
 
+/* ===== NAVBAR (fixed + animated hide/show) ===== */
 .navBar {
-  position: relative;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 61px;
-  z-index: 2;
-  margin: 0 10%;
+
+  padding: 18px 10%;
+  margin: 0;
+
+  backdrop-filter: blur(12px);
+  z-index: 999;
+
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   text-decoration: none;
   color: var(--color-text);
 }
 
-
+/* Toggle button (hidden on desktop) */
 .menuBtn {
   display: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.menuBtn img {
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .menu {
   display: flex;
 }
 
+/* Default (desktop) menu */
 .menuItems {
   display: flex;
-  gap: 47px;
+  gap: 42px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menuItems a {
-  font-size: 25px;
+  font-size: 20px;
   color: var(--color-text);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@media screen and (max-width: 830px) {
+.menuItems a:hover {
+  color: var(--color-primary);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 830px) {
+  /* Keep title + toggle on the same row */
   .navBar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 8%;
   }
 
   .menu {
-    position: absolute;
-    right: 0;
-    margin-right: 10%;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 11px;
-    z-index: 3;
+    position: relative;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
   }
 
   .menuBtn {
     display: block;
-    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+  .menuBtn:active {
+    transform: scale(0.98);
   }
 
+  /* Dropdown panel anchored under the button */
   .menuItems {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
     display: none;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 13px;
+    padding: 18px 22px;
     border-radius: 10px;
-    background: rgb(25, 55, 109);
     background: linear-gradient(
       0deg,
-      rgba(25, 55, 109, 0.2) 0%,
-      rgba(25, 55, 109, 1) 100%
+      rgba(25,55,109,0.3) 0%,
+      rgba(25,55,109,1) 100%
     );
-    padding: 24px 33px;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    width: max(220px, 40vw);
   }
 
-  .menuOpen {
-    display: flex;
-    z-index: 1;
+  .menuOpen { display: flex; }
+
+  .menuItems a {
+    font-size: 18px;
+    text-align: left;
+    white-space: nowrap;
   }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .navBar { transition: none; }
+  .hidden { transform: translateY(-100%); }
 }
