@@ -1,0 +1,78 @@
+@import "../../vars.css";
+
+/* ===== Scroll To Top Button ===== */
+.scrollBtn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: rgb(18 43 137);
+    color: var(--color-text);
+    box-shadow: 0 6px 14px rgb(129 149 255 / 35%);
+    backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  z-index: 999;
+}
+
+/* Visible state */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover & Active effects */
+.scrollBtn:hover {
+  background: var(--color-secondary);
+  box-shadow: 0 0 14px rgba(72, 196, 189, 0.8);
+}
+
+.scrollBtn:active {
+  transform: translateY(2px);
+}
+
+/* Image/Icon inside button */
+.icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(-1) invert(0); 
+  transition: transform 0.3s ease;
+}
+
+/* Lift the icon a bit when hovered */
+.scrollBtn:hover .icon {
+  transform: translateY(-3px);
+}
+
+/* Hide on smaller screens slightly lower */
+@media (max-width: 600px) {
+  .scrollBtn {
+    bottom: 24px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
