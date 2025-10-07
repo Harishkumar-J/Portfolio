@@ -1,9 +1,9 @@
-import styles from "./Navbar.module.css";
+import styles from "./NavigationBar.module.css";
 import { useEffect, useState } from "react";
 import menuIcon from "/assets/nav/menuIcon.png";
 import closeIcon from "/assets/nav/closeIcon.png";
 
-export const Navbar = () => {
+export const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
