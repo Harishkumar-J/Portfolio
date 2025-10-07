@@ -1,7 +1,7 @@
-import aboutImage from "../../../assets/about/aboutImage.png";
-import react from "../../../assets/about/react.png";
-import dataAnalyst from "../../../assets/about/dataAnalyst.png";
-import bi from "../../../assets/about/bi.png";
+import aboutImage from "/assets/about/aboutImage.png";
+import react from "/assets/about/react.png";
+import dataAnalyst from "/assets/about/dataAnalyst.png";
+import bi from "/assets/about/bi.png";
 import styles from "./About.module.css";
 
 export const About = () => {
