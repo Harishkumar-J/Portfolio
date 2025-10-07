@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import menuIcon from "/assets/nav/menuIcon.png";
 import closeIcon from "/assets/nav/closeIcon.png";
 
-function Navbar() {
+export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -79,5 +79,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;
