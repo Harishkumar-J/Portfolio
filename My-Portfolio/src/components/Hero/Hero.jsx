@@ -8,15 +8,18 @@ export const Hero = () => {
         <h1 className={styles.title}>Hi, I'm Harish</h1>
 
         <p className={styles.description}>
-          I'm a Data enthusiast with 4 years of experience bridging data science and business intelligence.
-          Proven track record in dashboarding, statistical modeling, cloud data and frontend solutions.
-          Reach out if you'd like to learn more!
+          I'm a Data enthusiast with 4 years of experience bridging data science
+          and business intelligence. Proven track record in dashboarding,
+          statistical modeling, cloud data and frontend solutions. Reach out if
+          you'd like to learn more!
         </p>
 
         <div className={styles.actions}>
           <a
             href="mailto:harishkumarjagadeesan@gmail.com"
             className={styles.contactBtn}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Contact Me
           </a>
