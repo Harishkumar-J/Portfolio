@@ -1,22 +1,39 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import styles from "./ContactForm.module.css";
 
 export const ContactForm = () => {
-  const [status, setStatus] = useState("Send Message");
+  const formRef = useRef(null);
+  const [state, setState] = useState("idle"); // 'idle' | 'sending' | 'sent' | 'error'
+  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  // EmailJS keys from env (add these in .env and Netlify env)
+  const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setState("sending");
+    setError("");
 
-    // --- Option A: Netlify form submission ---
-    // Netlify handles form submissions automatically.
-    e.target.submit();
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
+        publicKey: PUBLIC_KEY,
+      });
+      formRef.current?.reset();
+      setState("sent");
+    } catch (err) {
+      console.error(err);
+      setError("Could not send. Please try again.");
+      setState("error");
+    }
+  };
 
-    // --- Option B: EmailJS (uncomment if using EmailJS) ---
-    // import emailjs from '@emailjs/browser';
-    // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY')
-    //   .then(() => setStatus("Message Sent ✅"))
-    //   .catch(() => setStatus("Error ❌"));
+  const resetForm = () => {
+    setState("idle");
+    setError("");
+    formRef.current?.reset();
   };
 
   return (
@@ -26,31 +43,64 @@ export const ContactForm = () => {
         Have a question, project idea, or just want to connect? Drop me a message below.
       </p>
 
-      <form
-        className={styles.form}
-        onSubmit={handleSubmit}
-        method="POST"
-        data-netlify="true"
-        name="contact"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-
-        <div className={styles.inputGroup}>
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
+      {/* Success view reuses the same card; no layout shifts */}
+      {state === "sent" ? (
+        <div className={styles.successBox}>
+          <div className={styles.bigTick} aria-hidden>✓</div>
+          <h4>Message sent!</h4>
+          <p>Thanks — I’ll get back to you soon.</p>
+          <button onClick={resetForm} className={styles.secondaryBtn}>
+            Send another message
+          </button>
         </div>
+      ) : (
+        <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
+          <div className={styles.inputGroup}>
+            <input
+              name="from_name"
+              type="text"
+              placeholder="Your Name"
+              required
+              autoComplete="name"
+            />
+            <input
+              name="from_email"
+              type="email"
+              placeholder="Your Email"
+              required
+              autoComplete="email"
+            />
+          </div>
 
-        <textarea
-          name="message"
-          rows="6"
-          placeholder="Your Message"
-          required
-        ></textarea>
+          <textarea
+            name="message"
+            rows="6"
+            placeholder="Your Message"
+            required
+          />
 
-        <button type="submit" className={styles.submitBtn}>
-          {status}
-        </button>
-      </form>
+          {/* simple honeypot to deter bots */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            style={{ display: "none" }}
+          />
+
+          <button
+            type="submit"
+            className={styles.submitBtn}
+            disabled={state === "sending"}
+          >
+            {state === "sending" ? "Sending…" : "Send Message"}
+          </button>
+
+          {state === "error" && (
+            <div className={styles.error}>{error}</div>
+          )}
+        </form>
+      )}
     </section>
   );
 };

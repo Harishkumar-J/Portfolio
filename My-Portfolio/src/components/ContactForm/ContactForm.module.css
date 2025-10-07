@@ -38,6 +38,11 @@
   flex-wrap: wrap;
 }
 
+/* lets the two inputs sit side-by-side on wider screens */
+.inputGroup > input {
+  flex: 1 1 300px;
+}
+
 .inputGroup input,
 textarea {
   width: 100%;
@@ -49,12 +54,13 @@ textarea {
   color: var(--color-text);
   font-family: var(--font-roboto);
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .inputGroup input:focus,
 textarea:focus {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(87, 108, 188, 0.25);
 }
 
 .submitBtn {
@@ -67,7 +73,7 @@ textarea:focus {
   font-weight: 600;
   padding: 12px 28px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   box-shadow: 0 6px 15px rgba(87, 108, 188, 0.45);
 }
 
@@ -76,11 +82,66 @@ textarea:focus {
   box-shadow: 0 10px 20px rgba(87, 108, 188, 0.6);
 }
 
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 6px 15px rgba(87, 108, 188, 0.3);
+}
+
+/* ===== add-ons for success & error states ===== */
+.successBox {
+  background: linear-gradient(180deg, #132a53 0%, #04152d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  animation: pop-in 0.25s ease;
+}
+
+.bigTick {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(33, 197, 93, 0.15);
+  color: #21c55d;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.secondaryBtn {
+  margin-top: 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--color-text);
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.error {
+  margin-top: 10px;
+  color: #ffb4b4;
+  font-size: 14px;
+}
+
+/* subtle entry animation */
+@keyframes pop-in {
+  from { transform: scale(0.97); opacity: 0.85; }
+  to   { transform: scale(1);     opacity: 1; }
+}
+
 @media (max-width: 480px) {
-  .title {
-    font-size: 28px;
-  }
-  .subtitle {
-    font-size: 16px;
-  }
+  .title { font-size: 28px; }
+  .subtitle { font-size: 16px; }
 }
