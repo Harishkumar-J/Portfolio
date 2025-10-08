@@ -17,42 +17,46 @@ export const Contact = () => {
         </div>
         <ul className={styles.links}>
           <li className={styles.link}>
-            <img src={emailIcon} alt="Email icon" />
             <a
               href="mailto:harishkumarjagadeesan@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.iconLink}
             >
+              <img src={emailIcon} alt="Email icon" />
               Gmail
             </a>
           </li>
           <li className={styles.link}>
-            <img src={linkedinIcon} alt="LinkedIn icon" />
             <a
               href="https://www.linkedin.com/in/harishkumarjagadeesan"
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.iconLink}
             >
+              <img src={linkedinIcon} alt="LinkedIn icon" />
               LinkedIn
             </a>
           </li>
           <li className={styles.link}>
-            <img src={githubIcon} alt="Github icon" />
             <a
               href="https://www.github.com/Harishkumar-J"
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.iconLink}
             >
+              <img src={githubIcon} alt="Github icon" />
               Github
             </a>
           </li>
           <li className={styles.link}>
-            <img src={whatsappIcon} alt="WhatsApp icon" />
             <a
               href="https://api.whatsapp.com/send?phone=447827770641&text=Hi%20Harish!%20I%20found%20your%20portfolio%20and%20wanted%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.iconLink}
             >
+              <img src={whatsappIcon} alt="WhatsApp icon" />
               WhatsApp
             </a>
           </li>
