@@ -26,7 +26,7 @@ export const Hero = () => {
 
           {/* Resume button — opens in a new tab */}
           <a
-            href="/Resume.pdf"
+            href="/Harish resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.resumeBtn}
